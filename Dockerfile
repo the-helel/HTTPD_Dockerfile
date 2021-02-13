@@ -4,8 +4,8 @@ RUN yum install httpd -y
 
 RUN yum install net-tools -y
 
-COPY /var/www/html/index.html /var/www/html
+COPY index.html /var/www/html
 
-CMD /usr/sbin/httpd
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
 RUN echo /usr/sbin/httpd >> /root/.bashrc
